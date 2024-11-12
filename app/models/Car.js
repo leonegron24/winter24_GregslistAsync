@@ -54,6 +54,7 @@ export class Car {
   }
 
   get DeleteButton() {
+    // NOTE is the user logged in? AND is the user the creator of this car?
     if (AppState.account != null && AppState.account.id == this.creatorId) {
       return `
       <button onclick="app.CarsController.deleteCar('${this.id}')" class="btn btn-danger w-100 mt-2" title="Delete Car"><i class="mdi mdi-delete-forever"></i></button>`

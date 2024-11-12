@@ -10,15 +10,17 @@ export class CarsController {
     console.log('🚙🎮');
     this.fetchCars()
     // this.drawCars()
-    AppState.on('cars', this.drawCars)
-    AppState.on('account', this.showForm)
-    AppState.on('account', this.drawCars)
+    AppState.on('cars', this.drawCars) // listen for cars, when they get here draw them
+    AppState.on('account', this.showForm) // listen for the user, when they "log in" show the create form
+    AppState.on('account', this.drawCars) // listen for the user, when they "log in", re-draw the cars (the template will re-evaluate if it should include the delete button)
   }
 
   async fetchCars() {
-    try {
+    try { // try catch is handy for async methods.
+      // try to do this, but if this error
       await carsService.fetchCars()
     } catch (error) {
+      // do this instead
       console.error(error)
     }
   }
@@ -58,8 +60,9 @@ export class CarsController {
       await carsService.deleteCar(carId)
       Pop.toast('Car deleted', 'info')
     } catch (error) {
+      // if something errors in the delete process, we can tell the user with notification
       const errorMessage = `😱Oh no! ${error.message} \n ${error.response.data.error}`
-      Pop.toast(errorMessage, 'error', 'top', 8000, true)
+      Pop.toast(errorMessage, 'error', 'top', 8000, true) // pops a notification on the screen
       console.error(error)
     }
   }
