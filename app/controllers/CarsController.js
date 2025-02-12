@@ -40,6 +40,7 @@ export class CarsController {
       console.log('🚙📃', formData);
       await carsService.postCar(formData)
       Pop.toast("Car Listing Created", 'success', 'top')
+      if (!formElm){return}
       formElm.reset()
     } catch (error) { // IF an error occurs, abandon the try code, and run this instead
       console.error("😱 Oh no!", error)
@@ -70,12 +71,14 @@ export class CarsController {
   drawCars() {
     console.log('✏️🚙');
     const carsListingsElm = document.getElementById('car-listings')
+    if (!carsListingsElm){return}
     carsListingsElm.innerHTML = ''
     AppState.cars.forEach(car => carsListingsElm.innerHTML += car.Card)
   }
 
   showForm() {
     const carFormElm = document.getElementById('create-car-form')
+    if(!carFormElm){return}
     carFormElm.classList.remove('d-none')
   }
 }

@@ -5,7 +5,7 @@ export class HomeController {
     console.log('This is the Home Controller')
   }
 
-  testButton(){
-    Pop.success('The button Works 😎')
+  drawHomes(){
+    
   }
 }

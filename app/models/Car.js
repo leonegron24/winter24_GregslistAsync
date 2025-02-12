@@ -21,7 +21,7 @@ export class Car {
   }
 
   get Card() {
-    return `
+    return /*html*/ `
          <div class="col-md-4">
          <div class="card shadow-sm">
            <img class="card-img p-2"
