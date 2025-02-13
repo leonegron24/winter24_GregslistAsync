@@ -15,19 +15,9 @@ class CarsService {
     AppState.cars.push(createdCar)
   }
   async fetchCars() {
-    // const response = await fetch('https://sandbox.codeworksacademy.com/api/cars')
-    // console.log('🚙📡', response);
-    // const data = await response.json()
-    // console.log('🚙🚙🚙', data);
-    // const response = await api.get('https://sandbox.codeworksacademy.com/api/cars')
-    // NOTE api from AxiosService wraps around 'fetch' and gives us some handy utilities,
-    // in this case, it lets us shorten our 'url' endpoints because we filled out the 'baseURL' in the env.js
     const response = await api.get('api/cars')
-    console.log('🚙📡', response.data);
     const cars = response.data.map(carData => new Car(carData))
-    console.log('🚙✨', cars);
     AppState.cars = cars
-    console.log(AppState.cars);
   }
 
   async deleteCar(carId) {
