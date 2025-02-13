@@ -13,4 +13,11 @@
 .card-img {
   height: 300px;
   object-fit: cover;
+} 
+
+.house-pic{
+  object-fit: cover;
+  height: 300px;
+  max-width: 100%;
+  aspect-ratio: 1/1;
 }
