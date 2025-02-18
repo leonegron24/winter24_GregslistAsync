@@ -72,6 +72,8 @@ export class HouseController {
 
     async deleteHouse(houseId) {
       try {
+        if (!event){return}
+        event.preventDefault
         const confirmed = await Pop.confirm("Are you sure you want to delete this house?", 'Someone might be interested one day', 'Hell Yeah', 'question'
         )
         if (!confirmed) return

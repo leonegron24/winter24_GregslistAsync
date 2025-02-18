@@ -62,20 +62,22 @@ export class House {
         <button class="btn btn-primary mt-2 mb-2" onclick="document.getElementById('house-form-${this.id}').classList.toggle('d-none')">
             Edit Listing <i class="mdi mdi-chevron-down"></i>
         </button>
-    
-        <form id="house-form-${this.id}" class="d-none mt-2 mb-2" onsubmit="app.HouseController.updateHouse('${this.id}'); return false;">
-            <input type="number" name="price" placeholder="Price" class="form-control my-1"/>
-            <input type="number" name="bedrooms" placeholder="Bedrooms" class="form-control my-1"/>
-            <input type="number" name="bathrooms" placeholder="Bathrooms" class="form-control my-1"/>
-            <input type="number" name="levels" placeholder="Levels" class="form-control my-1"/>
-            <input type="number" name="year" placeholder="Year" class="form-control my-1"/>
-            <input type="text" name="description" placeholder="Description" class="form-control my-1"/>
-            <input type="url" name="imgUrl" placeholder="Image URL" class="form-control my-1"/>
+
+        <div id='house-form-${this.id}' class='d-none'>
+            <form class="mt-2 mb-2" onsubmit="app.HouseController.updateHouse('${this.id}'); return false;">
+                <input type="number" name="price" placeholder="Price" class="form-control my-1"/>
+                <input type="number" name="bedrooms" placeholder="Bedrooms" class="form-control my-1"/>
+                <input type="number" name="bathrooms" placeholder="Bathrooms" class="form-control my-1"/>
+                <input type="number" name="levels" placeholder="Levels" class="form-control my-1"/>
+                <input type="number" name="year" placeholder="Year" class="form-control my-1"/>
+                <input type="text" name="description" placeholder="Description" class="form-control my-1"/>
+                <input type="url" name="imgUrl" placeholder="Image URL" class="form-control my-1"/>
 
 
-            <button class="btn btn-success w-50 mt-2" title="Update House">Update Listing <i class="mdi mdi-update"></i></button>
+                <button type='submit' class="btn btn-success w-50 mt-2" title="Update House">Update Listing <i class="mdi mdi-update"></i></button>
+            </form>
             <div class='text-center mb-2'> ${this.DeleteButton} </div>
-        </form>
+        </div>
         `;
     } else return "";
     }
