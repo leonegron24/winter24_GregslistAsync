@@ -55,7 +55,7 @@ export class HouseController {
     try{
       if (!event){return}
       event.preventDefault
-      const formElm = document.getElementById('select-house')
+      const formElm = event.target
       console.log('whats the event target?', formElm)
       const formData = getFormData(formElm)
       console.log('trial update form data', formData)
