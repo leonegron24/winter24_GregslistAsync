@@ -70,6 +70,9 @@ export class House {
             <input type="number" name="levels" placeholder="Levels" class="form-control my-1"/>
             <input type="number" name="year" placeholder="Year" class="form-control my-1"/>
             <input type="text" name="description" placeholder="Description" class="form-control my-1"/>
+            <input type="url" name="imgUrl" placeholder="Image URL" class="form-control my-1"/>
+
+
             <button class="btn btn-success w-50 mt-2" title="Update House">Update Listing <i class="mdi mdi-update"></i></button>
             <div class='text-center mb-2'> ${this.DeleteButton} </div>
         </form>
