@@ -41,7 +41,6 @@ export class House {
                 <img id='house-profile' class="col-md-4 profile-picture profile-picture-sm mb-2" src="${this.creator.picture}" alt="A beautiful picture of ${this.creator.name}"/>
             </div>
             <div class='text-center'> ${this.updateHouse} </div>
-            <div class='text-center mb-2'> ${this.DeleteButton} </div>
 
 
     
@@ -60,18 +59,19 @@ export class House {
     get updateHouse() {
     if (AppState.account != null && AppState.account.id == this.creatorId) {
         return /*html*/ `
-        <button class="btn btn-primary mt-2" onclick="document.getElementById('house-form-${this.id}').classList.toggle('d-none')">
+        <button class="btn btn-primary mt-2 mb-2" onclick="document.getElementById('house-form-${this.id}').classList.toggle('d-none')">
             Edit Listing <i class="mdi mdi-chevron-down"></i>
         </button>
     
-        <form id="house-form-${this.id}" class="d-none mt-2" onsubmit="app.HouseController.updateHouse('${this.id}'); return false;">
+        <form id="house-form-${this.id}" class="d-none mt-2 mb-2" onsubmit="app.HouseController.updateHouse('${this.id}'); return false;">
             <input type="number" name="price" placeholder="Price" class="form-control my-1"/>
             <input type="number" name="bedrooms" placeholder="Bedrooms" class="form-control my-1"/>
-            <input type="number" name="bathrooms" placeholder="New Bathrooms" class="form-control my-1"/>
+            <input type="number" name="bathrooms" placeholder="Bathrooms" class="form-control my-1"/>
             <input type="number" name="levels" placeholder="Levels" class="form-control my-1"/>
             <input type="number" name="year" placeholder="Year" class="form-control my-1"/>
             <input type="text" name="description" placeholder="Description" class="form-control my-1"/>
-            <button class="btn btn-success w-100 mt-2" title="Update House">Update Listing <i class="mdi mdi-update"></i></button>
+            <button class="btn btn-success w-50 mt-2" title="Update House">Update Listing <i class="mdi mdi-update"></i></button>
+            <div class='text-center mb-2'> ${this.DeleteButton} </div>
         </form>
         `;
     } else return "";
