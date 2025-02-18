@@ -22,12 +22,12 @@ export class Car {
 
   get Card() {
     return /*html*/ `
-         <div class="col-md-4">
+         <div class="col-md-4 g-2">
          <div class="card shadow-sm">
            <img class="card-img p-2"
              src="${this.imgUrl}"
              alt="">
-           <div class="card-body">
+           <div>
              <p class="text-center fw-bold">
                ${this.make} ${this.model} ${this.year}
              </p>

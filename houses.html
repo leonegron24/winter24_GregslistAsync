@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="assets/style/main.css">
     <link rel="stylesheet" href="assets/style/style.css">
     <title>Houses</title>
+    <script id="debug-script" src="https://cdn.jsdelivr.net/gh/MickShannahan/style-debug@latest/debug.min.js" defer></script>
   </head>
-  <body>
+  <body class="debug">
     <!-- SECTION -->
     <header>
       <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
@@ -41,14 +42,52 @@
     <!-- SECTION -->
     <main class="container">
       <!-- STUB house form -->
-  
+      <form id="create-house-form" onsubmit="app.HouseController.postHome()"
+      class="d-none row bg-white rounded p-3 shadow-sm my-3 g-3">
+      <div>
+        <h2>List Your Home</h2>
+      </div>
+      <div class="col-md-2">
+        <label for="house-bedrooms">Bedrooms</label>
+        <input required id="house-bedrooms" name="bedrooms" type="number" min="1" max="40" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <label for="house-bathrooms">Bathrooms</label>
+        <input required id="house-bathrooms" name="bathrooms" type="number" min="1" max="20" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <label for="house-levels">Levels</label>
+        <input required id="house-levels" name="levels" type="number" min="1" max="6" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <label for="house-year">Year</label>
+        <input required id="house-year" name="year" type="number" min="1885" max="2025" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <label for="house-price">Price</label>
+        <input required id="house-price" name="price" type="number" min="1" max="10000000000" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="house-imgUrl">Picture</label>
+        <input id="house-imgUrl" name="imgUrl" type="url" class="form-control">
+      </div>
+      <div class="col-12">
+        <label for="house-description">Description</label>
+        <textarea name="description" id="house-description" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="text-end mt-3">
+        <button class="btn btn-primary px-4">Submit <i class="mdi mdi-plust"></i></button>
+      </div>
+    </form><section class="form-control" id="house-form">
+
+      </section>
       <!-- ------- -->
   
       <!-- STUB houses listings -->
   
       <h1>Wanna Buy A House?</h1>
       <hr>
-      <section id="house-listings" class="row justify-content-between">
+      <section id="house-listings" class="row g-3">
   
 
         
