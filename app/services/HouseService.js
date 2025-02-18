@@ -8,7 +8,8 @@ class HouseService{
     const response = await api.put(`api/houses/${houseId}`, formData)
     console.log('📅🏠', response.data);
     const houseToUpdate = AppState.homes.find(house=> house.id == houseId)
-    
+    const updatedHome = new House(houseToUpdate)
+    AppState.homes.push(updatedHome)
   }
   
   async deleteHouse(houseId) {
