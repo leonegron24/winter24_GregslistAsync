@@ -51,6 +51,7 @@ export class HouseController {
       console.error(error)
       } 
   }
+  
   async updateHouse(houseId){
     try{
       if (!event){return}

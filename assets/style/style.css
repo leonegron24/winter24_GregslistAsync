@@ -22,4 +22,14 @@
   aspect-ratio: 1/1;
 }
 
+.img-box{
+  object-fit: cover;
+  height: 100px;
+  max-width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.card-height{
+  min-height: 370px;
+}
 

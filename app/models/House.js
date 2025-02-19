@@ -17,9 +17,10 @@ export class House {
 
     get houseCard(){
         return /*html*/ `
-        <div class='col-md-4 shadow'>
+        <div class='col-md-3'>
+        <div class='shadow'>
             <div class='row'>
-                <img id='house-imgURL' class='house-pic' src="${this.imgUrl}"/> 
+                <img id='house-imgURL' class='house-pic' src="${this.imgUrl}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1497514440240-3b870f7341f0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWlzc2luZ3xlbnwwfHwwfHx8MA%3D%3D'"/> 
                 <div id='house-price' class='text-success'>$${this.price}</div>
             </div>
 
@@ -43,7 +44,7 @@ export class House {
             <div class='text-center'> ${this.updateHouse} </div>
 
 
-    
+            </div>
         </div>
         `
     }
@@ -52,7 +53,7 @@ export class House {
         // NOTE is the user logged in? AND is the user the creator of this car?
         if (AppState.account != null && AppState.account.id == this.creatorId) {
           return /*html*/ `
-          <button onclick="app.HouseController.deleteHouse('${this.id}')" class="btn btn-danger w-50 mt-2" title="Delete House">Delete Listing<i class="mdi mdi-delete-forever"></i></button>`
+          <button type='button' onclick="app.HouseController.deleteHouse('${this.id}')" class="btn btn-danger w-50 mt-2" title="Delete House">Delete Listing<i class="mdi mdi-delete-forever"></i></button>`
         }
         return ''
       }
@@ -65,7 +66,7 @@ export class House {
 
         <div id='house-form-${this.id}' class='d-none'>
             <form class="mt-2 mb-2" onsubmit="app.HouseController.updateHouse('${this.id}'); return false;">
-                <input type="number" name="price" placeholder="Price" class="form-control my-1"/>
+                <input type="number" name="price" placeholder="Price" class="form-control my-1" value='${this.price}' />
                 <input type="number" name="bedrooms" placeholder="Bedrooms" class="form-control my-1"/>
                 <input type="number" name="bathrooms" placeholder="Bathrooms" class="form-control my-1"/>
                 <input type="number" name="levels" placeholder="Levels" class="form-control my-1"/>

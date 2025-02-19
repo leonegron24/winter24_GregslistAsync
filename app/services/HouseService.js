@@ -8,14 +8,16 @@ class HouseService{
     const response = await api.put(`api/houses/${houseId}`, formData)
     console.log('📅🏠', response.data);
     const houseToUpdate = AppState.homes.find(house=> house.id == houseId)
-    const updatedHome = new House(houseToUpdate)
-    AppState.homes.push(updatedHome)
+    if(!houseToUpdate){return}
+    const indexToRemove = AppState.homes.indexOf(houseToUpdate)
+    AppState.homes.splice(indexToRemove,1,new House(response.data))
   }
   
   async deleteHouse(houseId) {
     const response = await api.delete(`api/houses/${houseId}`)
     console.log('🔥🏠📡', response.data);
     const houseToDelete = AppState.homes.find(house => house.id == houseId)
+    if(!houseToDelete){return}
     const indexToRemove = AppState.homes.indexOf(houseToDelete)
     AppState.homes.splice(indexToRemove,1)
   }
