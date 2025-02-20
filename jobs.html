@@ -41,10 +41,39 @@
         <!-- SECTION -->
         <main class="container">
           <!-- STUB job form -->
-      
+          <form id="create-job-form" onsubmit="app.JobsController.postJob()" class="d-none row bg-white rounded p-3 shadow-sm my-3 g-3">
+            <div>
+              <h2>List Your Job</h2>
+            </div>
+            <div class="col-md-2">
+              <label for="job-title">Job Title</label>
+              <input required id="job-title" name="jobTitle" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label for="job-company">Company</label>
+              <input required id="job-company" name="company" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label for="job-hours">Hours</label>
+              <input required id="job-hours" name="hours" type="number" min="1" max="80" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label for="job-rate">Rate</label>
+              <input required id="job-rate" name="rate" type="number" min="1" max="10000000" class="form-control">
+            </div>
+            <div>
+              <label for="job-description">Description</label>
+              <textarea name="description" id="job-description" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="text-end mt-3">
+              <button class="btn btn-primary px-4">Submit <i class="mdi mdi-plust"></i></button>
+            </div>
+          </form><section class="form-control" id="house-form">
+
           <!-- ------- -->
       
           <!-- STUB job listings -->
+
 
           <h1>Wanna Get a Friggin Job?</h1>
           <hr>

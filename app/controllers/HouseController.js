@@ -35,9 +35,7 @@ export class HouseController {
       if (!event){return}
       event.preventDefault()
       const formElm = event.target
-      console.log('post data elm', formElm)
       const formData = getFormData(formElm)
-      console.log('form Data: ', formData)
       await houseService.postHome(formData)
       Pop.toast("Home Listing Created", 'success', 'top')
       if (!formElm){return}
